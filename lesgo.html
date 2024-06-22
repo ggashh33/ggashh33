@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taman Bunga Mawar Romantis</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(to bottom, #87CEEB, #E0F6FF);
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .garden {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: float 30s infinite linear;
+        }
+        .cloud:before, .cloud:after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+        .cloud1 { width: 200px; height: 60px; top: 50px; left: -200px; }
+        .cloud1:before { width: 100px; height: 100px; top: -50px; left: 10px; }
+        .cloud1:after { width: 120px; height: 120px; top: -70px; right: 10px; }
+        .cloud2 { width: 100px; height: 30px; top: 150px; left: -100px; animation-delay: -15s; }
+        .cloud2:before { width: 50px; height: 50px; top: -25px; left: 5px; }
+        .cloud2:after { width: 60px; height: 60px; top: -35px; right: 5px; }
+        .rose {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .stem {
+            width: 6px;
+            height: 200px;
+            background: linear-gradient(to bottom, #228B22, #32CD32);
+            margin: 0 auto;
+            position: relative;
+        }
+        .thorns {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #228B22;
+            transform: rotate(45deg);
+        }
+        .thorns:nth-child(1) { top: 50px; left: -5px; }
+        .thorns:nth-child(2) { top: 100px; right: -5px; }
+        .thorns:nth-child(3) { top: 150px; left: -5px; }
+        .leaf {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background: #32CD32;
+            border-radius: 0 50px;
+            transform: rotate(-45deg);
+        }
+        .leaf:nth-child(4) { top: 80px; left: -20px; }
+        .leaf:nth-child(5) { top: 140px; right: -20px; transform: rotate(45deg) scaleX(-1); }
+        .rose-base {
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle at 60% 60%, #FF0000, #8B0000);
+            border-radius: 50%;
+            position: relative;
+            top: -20px;
+            margin: 0 auto;
+            z-index: 2;
+        }
+        .petal {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle at 20% 20%, #FF0000, #8B0000);
+            border-radius: 50% 0;
+            transform-origin: 100% 100%;
+        }
+        .petal:nth-child(1) { transform: rotate(0deg) translateX(20px) rotate(0deg); }
+        .petal:nth-child(2) { transform: rotate(30deg) translateX(20px) rotate(-30deg); }
+        .petal:nth-child(3) { transform: rotate(60deg) translateX(20px) rotate(-60deg); }
+        .petal:nth-child(4) { transform: rotate(90deg) translateX(20px) rotate(-90deg); }
+        .petal:nth-child(5) { transform: rotate(120deg) translateX(20px) rotate(-120deg); }
+        .petal:nth-child(6) { transform: rotate(150deg) translateX(20px) rotate(-150deg); }
+        .petal:nth-child(7) { transform: rotate(180deg) translateX(20px) rotate(-180deg); }
+        .petal:nth-child(8) { transform: rotate(210deg) translateX(20px) rotate(-210deg); }
+        .petal:nth-child(9) { transform: rotate(240deg) translateX(20px) rotate(-240deg); }
+        .petal:nth-child(10) { transform: rotate(270deg) translateX(20px) rotate(-270deg); }
+        .petal:nth-child(11) { transform: rotate(300deg) translateX(20px) rotate(-300deg); }
+        .petal:nth-child(12) { transform: rotate(330deg) translateX(20px) rotate(-330deg); }
+        .message {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            color: #FF1493;
+            text-shadow: 1px 1px 2px white;
+            animation: fadeIn 3s ease-in-out forwards;
+        }
+        @keyframes float {
+            0% { transform: translateX(-200px); }
+            100% { transform: translateX(calc(100vw + 200px)); }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="garden">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="rose">
+            <div class="stem">
+                <div class="thorns"></div>
+                <div class="thorns"></div>
+                <div class="thorns"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+            </div>
+            <div class="rose-base">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+            </div>
+        </div>
+        <div class="message">Selamat ulang tahun sayangg</div>
+    </div>
+</body>
+</html>
