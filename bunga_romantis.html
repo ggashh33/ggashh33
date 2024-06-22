@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bunga Romantis</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6f2;
+            overflow: hidden;
+        }
+        #flower {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+        .petal {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: pink;
+            border-radius: 50% 0;
+            top: 50px;
+            left: 50px;
+            transform-origin: 0 0;
+            animation: rotate 10s infinite linear;
+        }
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+        #message {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <div id="flower"></div>
+    <div id="message">Untuk Cintaku</div>
+
+    <script>
+        const flower = document.getElementById('flower');
+        const petalCount = 12;
+
+        for (let i = 0; i < petalCount; i++) {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.style.transform = `rotate(${i * (360 / petalCount)}deg)`;
+            flower.appendChild(petal);
+        }
+    </script>
+</body>
+</html>
