@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taman Bunga Ghibli - Ulang Tahun Chelsea</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+        @font-face {
+            font-family: 'GhibliFont';
+            src: url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+        }
+    </style>
+</head>
+<body>
+    <canvas id="ghibliGarden"></canvas>
+    <script>
+        const canvas = document.getElementById('ghibliGarden');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // ... (Fungsi-fungsi sebelumnya tetap sama: drawSky, drawCloud, drawGrass, drawFlower)
+
+        function drawText() {
+            ctx.font = "bold 48px 'Indie Flower', cursive";
+            ctx.fillStyle = '#FF1493';
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 8;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            const text = "Selamat Ulang Tahun";
+            const text2 = "Chelsea Cantik";
+            
+            // Efek bayangan
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 10;
+            ctx.shadowOffsetX = 5;
+            ctx.shadowOffsetY = 5;
+
+            // Stroke untuk outline
+            ctx.strokeText(text, canvas.width / 2, 100);
+            ctx.strokeText(text2, canvas.width / 2, 160);
+
+            // Fill untuk warna teks
+            ctx.fillText(text, canvas.width / 2, 100);
+            ctx.fillText(text2, canvas.width / 2, 160);
+
+            // Reset bayangan
+            ctx.shadowColor = 'transparent';
+            ctx.shadowBlur = 0;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
+        }
+
+        function draw() {
+            drawSky();
+
+            // Gambar awan
+            for (let i = 0; i < 5; i++) {
+                drawCloud(Math.random() * canvas.width, Math.random() * canvas.height / 2, 50 + Math.random() * 100);
+            }
+
+            drawGrass();
+
+            // Gambar bunga
+            const colors = ['#FF69B4', '#FF1493', '#FF6347', '#FF4500', '#9370DB', '#8A2BE2'];
+            for (let i = 0; i < 50; i++) {
+                const x = Math.random() * canvas.width;
+                const y = canvas.height - 200 + Math.random() * 150;
+                const size = 10 + Math.random() * 20;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                drawFlower(x, y, size, color);
+            }
+
+            drawText();
+        }
+
+        draw();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            draw();
+        });
+    </script>
+</body>
+</html>
