@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mawar Indah</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #ffe6f0, #ffc0cb);
+            overflow: hidden;
+        }
+        #message {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+            color: #d81b60;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <svg width="300" height="400" viewBox="0 0 300 400">
+        <!-- Batang -->
+        <path d="M150 400 Q 150 350 150 300" stroke="#2e7d32" stroke-width="6" fill="none" />
+        
+        <!-- Daun -->
+        <path d="M150 350 Q 100 320 130 280" fill="#4caf50" />
+        <path d="M150 340 Q 200 310 170 270" fill="#4caf50" />
+        
+        <!-- Kelopak -->
+        <g transform="translate(150,150) scale(0.8)">
+            <path d="M0 0 C 50 -50 50 -100 0 -100 C -50 -100 -50 -50 0 0" fill="#e91e63" transform="rotate(0)">
+                <animate attributeName="d" dur="5s" repeatCount="indefinite"
+                    values="M0 0 C 50 -50 50 -100 0 -100 C -50 -100 -50 -50 0 0;
+                            M0 0 C 60 -60 60 -110 0 -110 C -60 -110 -60 -60 0 0;
+                            M0 0 C 50 -50 50 -100 0 -100 C -50 -100 -50 -50 0 0" />
+            </path>
+            <path d="M0 0 C 50 -50 50 -100 0 -100 C -50 -100 -50 -50 0 0" fill="#ec407a" transform="rotate(72)">
+                <animate attributeName="d" dur="5s" repeatCount="indefinite"
+                    values="M0 0 C 50 -50 50 -100 0 -100 C -50 -100 -50 -50 0 0;
+                            M0 0 C 60 -60 60 -110 0 -110 C -60 -110 -60 -60 0 0;
+                            M0 0 C 50 -50 50 -100 0 -100 C -50 -100 -50 -50 0 0" />
+            </path>
+            <path d="M0 0 C 50 -50 50 -100 0 -100 C -50 -100 -50 -50 0 0" fill="#f06292" transform="rotate(144)">
+                <animate attributeName="d" dur="5s" repeatCount="indefinite"
+                    values="M0 0 C 50 -50 50 -100 0 -100 C -50 -100 -50 -50 0 0;
+                            M0 0 C 60 -60 60 -110 0 -110 C -60 -110 -60 -60 0 0;
+                            M0 0 C 50 -50 50 -100 0 -100 C -50 -100 -50 -50 0 0" />
+            </path>
+            <path d="M0 0 C 50 -50 50 -100 0 -100 C -50 -100 -50 -50 0 0" fill="#f48fb1" transform="rotate(216)">
+                <animate attributeName="d" dur="5s" repeatCount="indefinite"
+                    values="M0 0 C 50 -50 50 -100 0 -100 C -50 -100 -50 -50 0 0;
+                            M0 0 C 60 -60 60 -110 0 -110 C -60 -110 -60 -60 0 0;
+                            M0 0 C 50 -50 50 -100 0 -100 C -50 -100 -50 -50 0 0" />
+            </path>
+            <path d="M0 0 C 50 -50 50 -100 0 -100 C -50 -100 -50 -50 0 0" fill="#f8bbd0" transform="rotate(288)">
+                <animate attributeName="d" dur="5s" repeatCount="indefinite"
+                    values="M0 0 C 50 -50 50 -100 0 -100 C -50 -100 -50 -50 0 0;
+                            M0 0 C 60 -60 60 -110 0 -110 C -60 -110 -60 -60 0 0;
+                            M0 0 C 50 -50 50 -100 0 -100 C -50 -100 -50 -50 0 0" />
+            </path>
+        </g>
+        
+        <!-- Pusat bunga -->
+        <circle cx="150" cy="150" r="20" fill="#ffd700">
+            <animate attributeName="r" dur="5s" repeatCount="indefinite" values="20;22;20" />
+        </circle>
+    </svg>
+    <div id="message">Untuk Cintaku yang Berharga</div>
+</body>
+</html>
