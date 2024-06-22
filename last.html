@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taman Bunga Ghibli</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <canvas id="ghibliGarden"></canvas>
+    <script>
+        const canvas = document.getElementById('ghibliGarden');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        function drawSky() {
+            const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, '#87CEEB');
+            gradient.addColorStop(1, '#E0F6FF');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function drawCloud(x, y, size) {
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.bezierCurveTo(x - size / 2, y - size / 2, x - size, y + size / 3, x - size / 2, y + size / 2);
+            ctx.bezierCurveTo(x - size / 4, y + size, x + size / 4, y + size, x + size / 2, y + size / 2);
+            ctx.bezierCurveTo(x + size, y + size / 3, x + size / 2, y - size / 2, x, y);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.fill();
+        }
+
+        function drawGrass() {
+            const gradient = ctx.createLinearGradient(0, canvas.height - 200, 0, canvas.height);
+            gradient.addColorStop(0, '#7CFC00');
+            gradient.addColorStop(1, '#228B22');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, canvas.height - 200, canvas.width, 200);
+
+            for (let i = 0; i < 1000; i++) {
+                const x = Math.random() * canvas.width;
+                const height = 5 + Math.random() * 20;
+                ctx.strokeStyle = '#228B22';
+                ctx.beginPath();
+                ctx.moveTo(x, canvas.height);
+                ctx.lineTo(x, canvas.height - height);
+                ctx.stroke();
+            }
+        }
+
+        function drawFlower(x, y, size, color) {
+            const petalCount = 5;
+            const petalSize = size / 2;
+
+            for (let i = 0; i < petalCount; i++) {
+                ctx.beginPath();
+                ctx.arc(
+                    x + Math.cos((Math.PI * 2 * i) / petalCount) * petalSize,
+                    y + Math.sin((Math.PI * 2 * i) / petalCount) * petalSize,
+                    petalSize,
+                    0,
+                    Math.PI * 2
+                );
+                ctx.fillStyle = color;
+                ctx.fill();
+            }
+
+            ctx.beginPath();
+            ctx.arc(x, y, size / 4, 0, Math.PI * 2);
+            ctx.fillStyle = 'yellow';
+            ctx.fill();
+        }
+
+        function draw() {
+            drawSky();
+
+            // Gambar awan
+            for (let i = 0; i < 5; i++) {
+                drawCloud(Math.random() * canvas.width, Math.random() * canvas.height / 2, 50 + Math.random() * 100);
+            }
+
+            drawGrass();
+
+            // Gambar bunga
+            const colors = ['#FF69B4', '#FF1493', '#FF6347', '#FF4500', '#9370DB', '#8A2BE2'];
+            for (let i = 0; i < 50; i++) {
+                const x = Math.random() * canvas.width;
+                const y = canvas.height - 200 + Math.random() * 150;
+                const size = 10 + Math.random() * 20;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                drawFlower(x, y, size, color);
+            }
+        }
+
+        draw();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            draw();
+        });
+    </script>
+</body>
+</html>
